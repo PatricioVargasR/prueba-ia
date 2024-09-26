@@ -1,0 +1,167 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --background-color: #090909;
+  --black-color: #111111;
+  --grayblack-color: #1e1f20;
+  --gray-color: #2c3136;
+  --green-color: #39FF14;
+  --purple-color: #532eb2;
+  --yellow-color: #FFD700;
+  --font-color: #eeeeee;
+  --fontsecond-color: #bfbfbf;
+  --s: 100px;
+  /* control the size*/
+  --c1: #343A4015;
+  --c2: #1B1B1B90;
+}
+
+/*Negro Carbón (#1B1B1B): Representa elegancia, profesionalismo y tecnología.
+Gris Oscuro (#343A40): Aporta sofisticación y modernidad.
+Verde Neón (#39FF14): Aporta un toque tecnológico y futurista.
+Azul Eléctrico (#00AEEF): Añade un acento brillante y tecnológico.*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background: radial-gradient(ellipse at bottom, var(--background-color), var(--black-color)),
+    radial-gradient(ellipse at top, var(--black-color), var(--black-color));
+  /*background-image: url("/grid.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  */
+
+}
+
+.tag__move {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  font-size: 1rem;
+  /*transform: translate(0px);*/
+  transition: left 0.1 linear;
+  border-radius: 5em;
+  padding: 0.5em 0.75em;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  font-size: 0.85em;
+  opacity: 0.15;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: -10px -10px 20px 7px #FFFFFF30 inset;
+
+  z-index: 0;
+}
+
+.tag__moveDisabled {
+  display: none;
+  visibility: collapse;
+  position: relative;
+}
+
+.tag__move:hover {
+  cursor: pointer;
+  opacity: 1;
+  backdrop-filter: bright(150%);
+}
+
+
+
+.scrollBarStyle {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #888;
+}
+
+.scrollBarStyle::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollBarStyle::-webkit-scrollbar-thumb {
+  background-color: var(--purple-color);
+}
+
+.scrollBarStyle::-webkit-scrollbar-track {
+  background-color: var(--gray-color);
+}
+
+.scrollBarStyleX {
+  overflow-y: hidden;
+  overflow-x: auto;
+  scrollbar-color: #888;
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
+}
+
+.scrollBarStyleX::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollBarStyleX::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: var(--highlightColorBasic);
+}
+
+.scrollBarStyleX::-webkit-scrollbar-track {
+  background-color: var(--terciaryColor);
+}
+
+.explotion {
+  position: absolute;
+  top: 3em;
+  left: 3em;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  border-radius: 5em;
+  transform: scale(0);
+}
+
+.explotion_active {
+  background-color: transparent;
+  animation: explotion 0.2s ease-in-out;
+  box-shadow: 0 0 15px 6px #ef3400cc;
+}
+
+@keyframes explotion {
+  to {
+    transform: scale(1);
+  }
+}
+
+.imageContainer {
+  z-index: -1;
+  position: fixed;
+  top: -0.5em;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  /*background-color: red;
+  --_g: #0000 90deg, var(--c1) 0;
+  background:
+    conic-gradient(from 90deg at 1px 1px, var(--_g)),
+    conic-gradient(from 90deg at 1px 1px, var(--_g)),
+    var(--c2);
+  background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+  */
+
+  background-image: url("/grid.png");
+  background-size: cover;
+  opacity: 0.03;
+}

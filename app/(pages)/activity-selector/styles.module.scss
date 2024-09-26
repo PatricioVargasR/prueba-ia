@@ -1,0 +1,217 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    margin: 0.5em;
+    border-radius: 0.25em;
+    border: 1px solid var(--gray-color);
+    height: calc(100svh - 1em);
+
+    &_title {
+        font-size: 1.75em;
+        color: var(--font-color);
+        text-align: center;
+        background: linear-gradient(45deg, var(--purple-color), var(--yellow-color));
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @media (width < 600px) {
+            font-size: 1.5em;
+        }
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5em;
+    width: 100%;
+}
+
+.section {
+    margin: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    z-index: 10;
+    background-color: transparent;
+    backdrop-filter: blur(7px);
+    padding: 2em;
+    border-radius: 0.5em;
+
+    @media (width < 600px) {
+        margin: 0;
+        width: calc(100svw - 1em);
+        padding: 0.5em;
+        gap: 1em;
+    }
+}
+
+.message {
+    color: var(--fontsecond-color);
+    max-width: 60ch;
+    text-align: center;
+    text-wrap: balance;
+
+    @media (width < 600px) {
+        font-size: 0.9em;
+        text-wrap: pretty;
+    }
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    gap: 1.5em;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 0.25em;
+    padding: 1.5em;
+}
+
+.subtitle {
+    color: var(--font-color);
+}
+
+.article {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    min-height: 12.5em;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--background-color);
+    border: 1px solid var(--grayblack-color);
+
+    &_messages {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &_message {
+        color: var(--fontsecond-color);
+        text-align: center;
+    }
+
+    &:hover {
+        border-color: #efe82060;
+        box-shadow: 0 0 4px 2px var(--purple-color);
+
+        & .icon {
+            transform: scale(1.2);
+        }
+
+
+    }
+
+    /* &_quiz {
+        //background: linear-gradient(120deg, #2b3025, #3d4334);
+        //border: 1px solid #efe82020;
+
+        &:hover {
+            border-color: #efe82060;
+            box-shadow: 0 0 4px 2px #efe82030;
+        }
+    }
+
+    &_algorithms {
+        //background: linear-gradient(120deg, #203124, #293e2e);
+        // border: 1px solid #39FF1420;
+        background-color: var(--background-color);
+        border: 1px solid var(--grayblack-color);
+
+        &:hover {
+            border-color: #39FF1460;
+            box-shadow: 0 0 4px 2px #39FF1430;
+        }
+    }*/
+
+    &_games {
+        position: relative;
+        opacity: 0.8;
+        pointer-events: stroke;
+        cursor: not-allowed;
+
+        &:hover>.article_cooming {
+            animation: click 0.3s linear;
+        }
+
+
+    }
+
+    &_cooming {
+        position: absolute;
+        top: calc(50% - 1.5em);
+        display: flex;
+        align-items: center;
+        height: 3em;
+        justify-content: center;
+        width: 60%;
+        font-weight: 600;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        color: #FFC107;
+        background-color: #FFC10715;
+        backdrop-filter: blur(2px);
+        border-bottom: 3px solid #FFC107;
+        border-top: 3px solid #FFC107;
+        transform: rotateZ(8deg);
+        z-index: 5;
+    }
+
+
+}
+
+
+@keyframes click {
+    0% {
+        transform: rotateZ(7deg);
+    }
+
+    25% {
+        transform: rotateZ(8deg) scale(.8);
+    }
+
+    50% {
+        transform: rotateZ(1deg);
+    }
+
+    75% {
+        transform: rotateZ(8deg) scale(.8);
+    }
+
+    100% {
+        transform: rotateZ(8deg) scale(1);
+    }
+}
+
+.icon {
+    width: 3em;
+    height: 3em;
+    transition: all 0.35s ease-in-out;
+
+    &_one {
+        color: #efe82050;
+    }
+
+    &_two {
+        color: #39FF1450;
+    }
+
+    &_three {
+        color: #14b1ff50;
+    }
+}
+
+.buttonSelect {
+    color: red !important;
+}

@@ -1,0 +1,44 @@
+.footer {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 4em;
+    padding: 0 1em;
+    border-top: 2px solid var(--grayblack-color);
+    background-color: var(--black-color);
+    z-index: 10;
+
+    &_logo {
+        width: 3em;
+        height: 3em;
+        color: var(--yellow-color);
+    }
+
+    &_name {
+        font-size: 0.85em;
+        color: var(--fontsecond-color);
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    &_nav {
+        display: flex;
+        gap: 1em;
+    }
+
+    &_link {
+        color: var(--font-color);
+
+        &:hover {
+            color: var(--purple-color);
+        }
+    }
+
+    &_icon {
+        width: 2em;
+        height: 2em;
+    }
+}
